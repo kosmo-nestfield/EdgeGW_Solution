@@ -83,6 +83,7 @@
 ## 설치 시 필요한 사전 정보는 아래와 같습니다.  
 **설치용 gatewayHostPackage 파일명**  
 * gatewayHostPackage_0128.tar  
+> 본 Repository에 업로드되어있습니다.
   
 **Docker pull용 appliation images 명**  
 * control    	:	nestfield/controlmodule:rel0126  
