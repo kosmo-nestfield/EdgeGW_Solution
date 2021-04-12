@@ -43,11 +43,11 @@
   
 ### 4. 네트워크 셋업  
 **[1]** 아래 명령어를 이용해 이더넷 인터페이스의 이름을 확인합니다.  
-> <span style="color:green">admin@gateway</span>:\~$ sudo ifconfig  
+> * <span style="color:green">admin@gateway</span>:\~$ sudo ifconfig  
 ![ifconfig](https://user-images.githubusercontent.com/82207645/114326519-2687ab80-9b70-11eb-9e44-904bd37dc3ea.png)  
 
 **[2]** 아래 명령어 입력 후 다음의 내용을 추가합니다.  
-> <span style="color:green">admin@gateway</span>:\~$ sudo vi /etc/network/interfaces  
+> * <span style="color:green">admin@gateway</span>:\~$ sudo vi /etc/network/interfaces  
 >> auto enp2s0  
 >> iface enp2s0 inet static  
 >> address xxx.xxx.xxx.xxx  
@@ -58,8 +58,8 @@
   
 ### 5. 네트워크 셋업 및 도커 설치  
 **[1]** 아래 명령어 중 하나를 입력하거나 시스템을 재시작합니다.  
-> <span style="color:green">admin@gateway</span>:\~$ sudo service network-manager restart  
-> <span style="color:green">admin@gateway</span>:\~$ sudo service networking restart  
+> * <span style="color:green">admin@gateway</span>:\~$ sudo service network-manager restart  
+> * <span style="color:green">admin@gateway</span>:\~$ sudo service networking restart  
 
 **[2]** 아래 명령어를 입력하여 IP 주소 확인 및 핑 테스트를 실행합니다.  
 * IP주소 확인  
@@ -69,12 +69,12 @@
 ![ping](https://user-images.githubusercontent.com/82207645/114326522-27b8d880-9b70-11eb-8007-88a4bc8cab6c.png)  
 
 **[3]** 아래 명령어를 입력하여 시스템을 업데이트합니다.  
-> <span style="color:green">admin@gateway</span>:\~$ sudo apt-get update  
+> * <span style="color:green">admin@gateway</span>:\~$ sudo apt-get update  
 
 **[4]** 아래 명령어를 입력하여 도커를 설치합니다.  
-> <span style="color:green">admin@gateway</span>:\~$ sudo curl -fsSL https://get.docker.com/ | sudo sh  
+> * <span style="color:green">admin@gateway</span>:\~$ sudo curl -fsSL https://get.docker.com/ | sudo sh  
 > *Curl이 설치되어있지 않으면 아래 명령어로 설치합니다.  
-> <span style="color:green">admin@gateway</span>:\~$ sudo apt-get install curl  
+> * <span style="color:green">admin@gateway</span>:\~$ sudo apt-get install curl  
   
 ## 이후 솔루션 설치는 본 Repository의 다음 문서를 참고하여 진행합니다.  
 * [**에지게이트웨이 교육자료.pdf**](https://github.com/kosmo-nestfield/EdgwGW_Solution/blob/main/%EC%97%90%EC%A7%80%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4%20%EA%B5%90%EC%9C%A1%EC%9E%90%EB%A3%8C.pdf)  
