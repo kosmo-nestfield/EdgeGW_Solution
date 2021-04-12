@@ -96,7 +96,7 @@
 * ls, cd , pwd, cp, cat, nano, vi, ifconfig, tar  
 * sudo apt-get update  
   
-**원격으로 SSH를 이용하여 엣지게이트웨이에 접속하는 방법은 "SSH 사용법" 폴더를 참고해주시기 바랍니다.**  
+**원격으로 SSH를 이용하여 엣지게이트웨이에 접속하는 방법은 ["SSH 사용법"](https://github.com/kosmo-nestfield/EdgwGW_Solution/tree/main/SSH%20%EC%82%AC%EC%9A%A9%EB%B2%95) 폴더를 참고해주시기 바랍니다.**  
   
 ## 도커 OPCUA Module과 Control Module 이미지는 Docker Hub에 업로드되어있습니다.   
 * [OPCUA Module](https://hub.docker.com/repository/docker/nestfield/opcuamodule)  
