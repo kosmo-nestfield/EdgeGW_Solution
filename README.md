@@ -45,6 +45,7 @@
 **[1]** 아래 명령어를 이용해 이더넷 인터페이스의 이름을 확인합니다.  
 > <span style="color:green">admin@gateway</span>:\~$ sudo ifconfig  
 ![ifconfig](https://user-images.githubusercontent.com/82207645/114326519-2687ab80-9b70-11eb-9e44-904bd37dc3ea.png)  
+
 **[2]** 아래 명령어 입력 후 다음의 내용을 추가합니다.  
 > <span style="color:green">admin@gateway</span>:\~$ sudo vi /etc/network/interfaces  
 >> auto enp2s0  
@@ -64,7 +65,7 @@
 * IP주소 확인  
 > <span style="color:green">admin@gateway</span>:\~$ sudo ifconfig  
 * 핑 테스트  
-> <span style="color:green">admin@gateway</span>:\~$ ping 8.8.8.8 
+> <span style="color:green">admin@gateway</span>:\~$ ping 8.8.8.8  
 ![ping](https://user-images.githubusercontent.com/82207645/114326522-27b8d880-9b70-11eb-8007-88a4bc8cab6c.png)  
 
 **[3]** 아래 명령어를 입력하여 시스템을 업데이트합니다.  
@@ -82,17 +83,20 @@
 ## 설치 시 필요한 사전 정보는 아래와 같습니다.  
 **설치용 gatewayHostPackage 파일명**  
 * gatewayHostPackage_0128.tar  
+  
 **Docker pull용 appliation images 명**  
 * control    	:	nestfield/controlmodule:rel0126  
 * opcuamodule	:	nestfield/opcuamodule:210127  
 * tsDB	    	:	machbase/machbase:6.1.15  
 * broker	  	:	eclipse-mosquitto:1.6.12  
 * monitor 		:	nicolargo/glances:3.1.6.1   
+  
 **설치 시 사용되는 최소한의 Linux 명령어**  
 * ls, cd , pwd, cp, cat, nano, vi, ifconfig, tar  
 * sudo apt-get update  
+  
 **원격으로 SSH를 이용하여 엣지게이트웨이에 접속하는 방법은 "SSH 사용법" 폴더를 참고해주시기 바랍니다.**  
   
-## 도커 OPCUA Module과 Control Module 이미지는 Docker Hub에 업로드되어있으며, 그 링크는 아래와 같습니다.  
+## 도커 OPCUA Module과 Control Module 이미지는 Docker Hub에 업로드되어있습니다.   
 * [OPCUA Module](https://hub.docker.com/repository/docker/nestfield/opcuamodule)  
 * [Control Module](https://hub.docker.com/repository/docker/nestfield/controlmodule)  
