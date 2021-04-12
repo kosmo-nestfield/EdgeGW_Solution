@@ -71,7 +71,7 @@
 ![ping](https://user-images.githubusercontent.com/82207645/114326522-27b8d880-9b70-11eb-8007-88a4bc8cab6c.png)  
 
 **[3]** 아래 명령어를 입력하여 시스템을 업데이트합니다.  
-````admin@gateway:\~$ sudo apt-get update```  
+```admin@gateway:\~$ sudo apt-get update```  
 
 **[4]** 아래 명령어를 입력하여 도커를 설치합니다.  
 ```admin@gateway:\~$ sudo curl -fsSL https://get.docker.com/ | sudo sh```  
@@ -84,8 +84,7 @@
 
 ## 설치 시 필요한 사전 정보는 아래와 같습니다.  
 **설치용 gatewayHostPackage 파일명**  
-* [**gatewayHostPackage_0128.tar**](https://github.com/kosmo-nestfield/EdgwGW_Solution/blob/main/gatewayHostPackage_0128.tar)  
-> 본 Repository에 업로드되어있습니다.
+* [**gatewayHostPackage_0128.tar**](https://github.com/kosmo-nestfield/EdgwGW_Solution/blob/main/gatewayHostPackage_0128.tar) : 본 Repository에 업로드되어있습니다.
   
 **Docker pull용 appliation images 명**  
 * control    	:	nestfield/controlmodule:rel0126  
