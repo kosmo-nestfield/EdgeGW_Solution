@@ -73,7 +73,7 @@
 
 **[4]** 아래 명령어를 입력하여 도커를 설치합니다.  
 >> <span style="color:green">admin@gateway</span>:\~$ sudo curl -fsSL https://get.docker.com/ | sudo sh  
->> *Curl이 설치되어있지 않으면 아래 명령어로 설치합니다.  *
+>> *Curl이 설치되어있지 않으면 아래 명령어로 설치합니다.  
 >> <span style="color:green">admin@gateway</span>:\~$ sudo apt-get install curl  
   
 ## 이후 솔루션 설치는 본 Repository의 다음 문서를 참고하여 진행합니다.  
