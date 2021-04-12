@@ -1,0 +1,5 @@
+1. Tera Term
+https://tera-term.softonic.kr/
+
+2. Putty
+https://www.putty.org/

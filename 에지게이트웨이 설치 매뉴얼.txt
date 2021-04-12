@@ -1,0 +1,294 @@
+﻿1. Docker 설치 ----------------------------------------------------------------------------------
+
+
+	sudo curl -fsSL https://get.docker.com/ | sudo sh 
+
+	sudo usermod -aG docker $USER
+
+	확인 
+	-------
+	docker ps <---- permission denied
+	sudo service docker restart
+	docker ps <---- permission denied
+	logout & login
+	docker ps
+	-------
+
+
+2. gatewayHostPackage 압축 해제  --------------------------------------------------------------
+
+	pwd
+	/home/admin
+	cd /home/admin or cd ~
+	ls 
+	tar xvf gatewayHostPackage_xxxxx.tar
+	ls
+
+
+3. gateway.config 파일 편집 ---------------------------------------------------------------------
+
+	cd sharedFolder
+	cat gateway.config.template
+	cp gateway.config.template gateway.config
+	nano gateway.config      or  vi gateway.config
+
+	nano 편집
+	^x  --> Y --> file명 gateway.config --> enter
+
+
+	편집할 내용
+	 - gatewayName, cloudServer IP address, amqp IP address, ID (amqp, opcuaUser)
+	 - gatewayName & 해당 regiKey, amqp ID & credential은 클라우드 설정과 동일해야 함.
+
+
+4. credential 암호화 작업 ----------------------------------------------------------------------
+
+	cd security
+	or
+	cd ~/sharedFolder/security
+
+	./dna_encrypt admin.secured 
+	enter encryption password:  ********
+	verify encryption password:  ********
+	success encryption!!!
+
+	- 암호는 각 에지실습진행_HELP-2 table 참조
+
+
+5. 도커 어플리케이션 이미지 다운로드 및 어플리케이션 컨테이너 구동 ----------------------
+
+5.1 도커 어플리케이션 이미지 다운로드 ------------------------------------------------------
+
+- 다운로드할 이미지:태그 명은 각 실습 설정 table 참조
+ 
+
+docker images
+df -h
+
+
+docker pull nestfield/controlmodule:rel0126
+docker pull nestfield/opcuamodule:210127
+docker pull machbase/machbase:6.1.15
+docker pull eclipse-mosquitto:1.6.12
+docker pull nicolargo/glances:3.1.6.1
+
+
+5.2 도커 내부 브리지 커스톰 네트워크(internalNet) 생성 -------------------------------------
+
+sudo ifconfig
+
+docker network create --driver bridge internalNet
+
+docker network ls
+
+sudo ifconfig 
+
+
+
+5.3 어플리케이션 컨테이너 구동 ---------------------------------------------------------------------
+
+
+docker ps
+
+docker run -it --name broker --hostname broker --network internalNet --restart=always eclipse-mosquitto:1.6.12
+ctrl+P+Q
+
+docker run -it -p 5001:5001 --name tsDB --hostname tsDB --network internalNet --restart=always -v ~/sharedFolder:/home/machbase/sharedVolume --mount type=bind,source=/home/admin/exDisk,target=/home/machbase/backupVolume,bind-propagation=shared machbase/machbase:6.1.15
+
+docker run -d --name monitor -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --network host --restart=always  -it nicolargo/glances:3.1.6.1
+
+docker run -it --name opcuaModule --hostname opcuaModule -p 4840:4840 --network internalNet -v ~/sharedFolder:/project/sharedVolume --restart=always --entrypoint '/bin/bash' nestfield/opcuamodule:210127
+
+docker run -it --name controlModule --hostname controlModule --network internalNet -v ~/sharedFolder:/project/sharedVolume --restart=always --entrypoint '/bin/bash' nestfield/controlmodule:rel0126
+
+
+docker ps
+
+
+
+5.4 tsDB 컨테이너 작업 : 시계열 DB 만들기 -----------------------------------------------------------
+
+
+docker attach tsDB
+
+
+machbase@tsDB:~$ machsql
+Machbase server address (Default:127.0.0.1) : 
+Machbase user ID  (Default:SYS)
+Machbase User Password : manager
+
+> create tagdata table tag(name varchar(256) primary key, time datetime basetime, value double summarized);
+> desc tag;
+> exit
+
+control+p+q
+
+5.5 tsDB 컨테이너 작업 : 라이센스 적용 -------------------------------------------------------------
+
+machhostid-->라이센스취득-->라이센스적용
+
+
+
+5.6 tsDB 컨테이너 작업 : 설정 변경 -----------------------------------------------------------------
+
+docker attach tsDB
+또는
+admin@gateway:~$ docker exec –it tsDB bash              # 시계열 DB 접속
+
+
+machbase@tsDB:~$ pwd
+/home/machbase
+machbase@tsDB:~$ 
+machbase@tsDB:~$ 
+machbase@tsDB:~$ 
+machbase@tsDB:~$ cd /home/machbase/machbase/webadmin/flask
+machbase@tsDB:~/machbase/webadmin/flask$ 
+machbase@tsDB:~/machbase/webadmin/flask$ pwd
+/home/machbase/machbase/webadmin/flask
+machbase@tsDB:~/machbase/webAdmin/flask$ vi MWA.conf 
+machbase@tsDB:~/machbase/webadmin/flask$ MWAserver restart
+control+p+q
+
+또는
+
+docker attach tsDB
+cd /home/machbase/machbase/webadmin/flask
+mv MWA.conf MWA.conf.org
+control+p+q
+
+cd ~/training
+
+nano MWA.conf
+
+docker cp MWA.conf tsDB:/home/machbase/machbase/webadmin/flask/MWA.conf
+
+docker attach tsDB
+cd /home/machbase/machbase/webadmin/flask
+ls -l
+sudo chown -R machbase:machbase MWA.conf
+ls -l
+MWAserver restart
+control+p, control+q 
+
+
+
+6. 로그 로테이트-1  ----------------------------------------------------------
+
+6.1 controlModuleLog 로그로테이트 ----------------------------------------
+
+cd
+
+cat ~/training/controlModuleLog
+
+
+admin@gateway:~$ sudo vi /etc/logrotate.d/controlModuleLog
+
+
+또는 복사
+
+sudo cp ~/training/controlModuleLog /etc/logrotate.d/
+
+
+admin@gateway:~$ sudo logrotate /etc/logrotate.conf
+
+
+
+6.2 컨테이너 로그로테이트 --------------------------------------------------
+
+admin@gateway:~$ sudo vi /etc/logrotate.d/docker-container 
+
+
+또는 복사
+
+cat ~/training/doc-container
+
+sudo cp ~/training/docker-container /etc/logrotate.d/
+
+sudo logrotate /etc/logrotate.conf
+
+
+7. Python3 설치 -------------------------------------------------------------
+
+sudo apt-get install python3      <--- 기 설치
+sudo apt-get install python3-pip  (별도 설치X : 실습 진행을 위해 미리 설치해둔 상태)
+
+
+8.  Python Library 설치 -----------------------------------------------------
+
+cd ~/projects
+
+cat requ..
+
+pip3 install -r requirements.txt
+
+
+
+9. 대시보드 어플리케이션 프로그램의 설치 ----------------------------------
+
+ gatewayHostPackage.tar 파일에 설치되어있음. 추가 설치 작업 미필요
+
+
+10. 대시보드 어플리케이션 서비스 등록 ---------------------------------------
+
+sudo nano /etc/systemd/system/gatewayWeb.service
+
+
+또는 복사
+
+cat ~/train
+
+sudo cp ~/training/gatewayWeb.service /etc/systemd/system/
+ls /etc/systemd/system/
+
+admin@gateway:~/projects$ sudo systemctl daemon-reload
+admin@gateway:~/projects$ sudo systemctl enable gatewayWeb.service
+
+sudo systemctl status gatewayWe
+    start
+
+
+
+11. 로그 로테이트-2 (gatewayWebLog) ----------------------------------------
+
+sudo vi /etc/logrotate.d/gatewayWebLog 
+
+sudo logrotate /etc/logrotate.conf
+
+또는 복사 
+
+ls ~/trai/ga
+
+sudo cp ~/training/gatewayWebLog /etc/logrotate.d/gatewayWebLog
+
+sudo logrotate /etc/logrotate.conf
+
+
+12. Gateway의 클라우드 등록 및 동작 확인 ------------------------------------
+
+sudo systemctl status gatewayWeb.service
+
+                restart
+
+Browser에서 http://121.66.242.172:<대시보드_port번호>
+
+  - 대시보드_port번호는 실습 설정 table 참조
+
+ex. http://121.66.242.172:22050/
+
+12.1 인증서 생성 @ Aggregation 서버 섹션 -----------------------------------
+
+12.2 등록 @ Control 섹션 ------------------------------------------------------
+
+
+13. 로컬 제조 데이터 뷰 생성 ---------------------------------------------------
+
+Browser에서 http://<IP Address>:<시계열DB_Web_port번호>
+
+
+
+
+- tag 검색
+
+  검색 tag명은 실습 설정 table 참조
+
+
