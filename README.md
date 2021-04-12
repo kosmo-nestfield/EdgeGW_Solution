@@ -77,8 +77,8 @@
 > <span style="color:green">admin@gateway</span>:\~$ sudo apt-get install curl  
   
 ## 이후 솔루션 설치는 본 Repository의 다음 문서를 참고하여 진행합니다.  
-* **에지게이트웨이 교육자료.pdf**  
-* **에지게이트웨이 설치매뉴얼.txt**  
+* [**에지게이트웨이 교육자료.pdf**](https://github.com/kosmo-nestfield/EdgwGW_Solution/blob/main/%EC%97%90%EC%A7%80%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4%20%EA%B5%90%EC%9C%A1%EC%9E%90%EB%A3%8C.pdf)  
+* [**에지게이트웨이 설치매뉴얼.txt**](https://github.com/kosmo-nestfield/EdgwGW_Solution/blob/main/%EC%97%90%EC%A7%80%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4%20%EC%84%A4%EC%B9%98%20%EB%A7%A4%EB%89%B4%EC%96%BC.txt)  
 
 ## 설치 시 필요한 사전 정보는 아래와 같습니다.  
 **설치용 gatewayHostPackage 파일명**  
