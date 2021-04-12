@@ -25,7 +25,7 @@
 ### 1. 사용자 계정 생성  
 아래 명령어를 이용해 사용자 계정을 생성합니다  
 ```admin@gateway:\~$ sudo adduser admin```  
-* ※ PW : nestfield, Hostname : gateway  
+  ※ PW : nestfield, Hostname : gateway  
   
 ### 2. 계정 권한 설정  
 아래 명령어를 이용해 사용자의 권한을 설정합니다.  
@@ -49,19 +49,19 @@
 **[2]** 아래 명령어 입력 후 다음의 내용을 추가합니다.  
 ```admin@gateway:\~$ sudo vi /etc/network/interfaces```  
 ```
-> auto enp2s0  
-> iface enp2s0 inet static  
-> address xxx.xxx.xxx.xxx  
-> netmask xxx.xxx.xx.xxx  
-> gateway xxx.xxx.xxx.xxx  
-> dns-nameservers xxx.xxx.xxx.xxx  
+ auto enp2s0  
+ iface enp2s0 inet static  
+ address xxx.xxx.xxx.xxx  
+ netmask xxx.xxx.xx.xxx  
+ gateway xxx.xxx.xxx.xxx  
+ dns-nameservers xxx.xxx.xxx.xxx  
 ```  
 ![interfaces](https://user-images.githubusercontent.com/82207645/114326521-27204200-9b70-11eb-8221-1e599731e70b.png)  
   
 ### 5. 네트워크 셋업 및 도커 설치  
 **[1]** 아래 명령어 중 하나를 입력하거나 시스템을 재시작합니다.  
 ```admin@gateway:\~$ sudo service network-manager restart```  
-```admin@gateway:\~$ sudo service networking restart````  
+```admin@gateway:\~$ sudo service networking restart```  
 
 **[2]** 아래 명령어를 입력하여 IP 주소 확인 및 핑 테스트를 실행합니다.  
 * IP주소 확인  
