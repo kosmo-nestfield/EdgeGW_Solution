@@ -47,12 +47,12 @@
 ![ifconfig](https://user-images.githubusercontent.com/82207645/114326519-2687ab80-9b70-11eb-9e44-904bd37dc3ea.png)  
 **[2]** 아래 명령어 입력 후 다음의 내용을 추가합니다.  
 > <span style="color:green">admin@gateway</span>:\~$ sudo vi /etc/network/interfaces  
-> auto enp2s0  
-> iface enp2s0 inet static  
-> address xxx.xxx.xxx.xxx  
-> netmask xxx.xxx.xx.xxx  
-> gateway xxx.xxx.xxx.xxx  
-> dns-nameservers xxx.xxx.xxx.xxx  
+>> auto enp2s0  
+>> iface enp2s0 inet static  
+>> address xxx.xxx.xxx.xxx  
+>> netmask xxx.xxx.xx.xxx  
+>> gateway xxx.xxx.xxx.xxx  
+>> dns-nameservers xxx.xxx.xxx.xxx  
 ![interfaces](https://user-images.githubusercontent.com/82207645/114326521-27204200-9b70-11eb-8221-1e599731e70b.png)  
   
 ### 5. 네트워크 셋업 및 도커 설치  
