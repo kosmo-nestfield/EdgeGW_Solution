@@ -88,7 +88,7 @@
   
 **Docker pull용 appliation images 명**  
 * control    	:	nestfield/controlmodule:rel0126  
-* opcuamodule	:	nestfield/opcuamodule:210127  
+* opcuamodule	:	nestfield/opcuamodule:210412  
 * tsDB	    	:	machbase/machbase:6.1.15  
 * broker	  	:	eclipse-mosquitto:1.6.12  
 * monitor 		:	nicolargo/glances:3.1.6.1   
