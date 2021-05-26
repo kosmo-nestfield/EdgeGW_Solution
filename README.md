@@ -81,7 +81,7 @@
 ## 이후 솔루션 설치는 본 Repository의 다음 문서를 참고하여 진행합니다.  
 * [**에지게이트웨이 교육자료.pdf**](https://github.com/kosmo-nestfield/EdgwGW_Solution/blob/main/%EC%97%90%EC%A7%80%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4%20%EA%B5%90%EC%9C%A1%EC%9E%90%EB%A3%8C.pdf)  
 * [**에지게이트웨이 설치매뉴얼.txt**](https://github.com/kosmo-nestfield/EdgwGW_Solution/blob/main/%EC%97%90%EC%A7%80%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4%20%EC%84%A4%EC%B9%98%20%EB%A7%A4%EB%89%B4%EC%96%BC.txt)  
-
+* [**0527 엣지게이트웨이 실습 매뉴얼**](https://github.com/kosmo-nestfield/EdgeGW_Solution/blob/main/%EC%97%A3%EC%A7%80%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4%EC%8B%A4%EC%8A%B5_5%EC%9B%9427%EC%9D%BC.pdf)
 ## 설치 시 필요한 사전 정보는 아래와 같습니다.  
 **설치용 gatewayHostPackage 파일명**  
 * [**gatewayHostPackage_0128.tar**](https://github.com/kosmo-nestfield/EdgwGW_Solution/blob/main/gatewayHostPackage_0128.tar) : 본 Repository에 업로드되어있습니다.
