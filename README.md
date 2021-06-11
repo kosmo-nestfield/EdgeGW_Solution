@@ -91,7 +91,7 @@
 **[5]** 아래 명령어를 차례로 입력하여 gateway.config 파일을 편집합니다.  
 ```cd ~/sharedFolder```  
 ```vi gateway.config 또는 nano gateway.config```  
-![image](https://user-images.githubusercontent.com/82207645/121631019-43c9ef00-cab9-11eb-8026-6c1c7b063033.png)  
+![image](https://user-images.githubusercontent.com/82207645/121639562-ac1fcd00-cac7-11eb-86a1-3e00f7c0eab6.png)  
 
 **[6]** 이후 아래 명령어를 차례로 입력하여 암호 파일을 편집합니다.  
 ```cd security```  
@@ -99,6 +99,19 @@
 ```./dna_encrypt opcua.secured```  
 ```./dna_encrypt amqp.secured```  
 ```./dna_encrypt regiKey.secured```  
+
+### 7. 엣지 게이트웨이 클라우드 등록  
+**\[6. 솔루션 설치 및 설정 작업\] 까지 진행하셨으면 엣지게이트웨이 설치는 완료된 것입니다.**  
+**클라우드의 설치가 완료되었다면 아래 절차를 수행하여 등록절차를 진행하시면 됩니다.**  
+**[1]** 웹 브라우저를 이용하여 게이트웨이 웹 대시보드로 이동합니다.  
+```http://[IP주소]:5000```  
+**[2]** 좌측 하단의 '인증서' 버튼을 누른 후 X.509 Cert 항목의 값이 false에서 true로 바뀐것을 확인합니다.  
+![image](https://user-images.githubusercontent.com/82207645/121639963-497b0100-cac8-11eb-9a25-8d14090378cf.png)  
+**[3]** 우측 상단의 '등록' 버튼을 누른 후 좌측 하단의 InfoModel, engineering, syscfg file값과 우측 상단 Cloud 등록 값이 true로 바뀐것을 확인합니다.  
+![image](https://user-images.githubusercontent.com/82207645/121640655-28ff7680-cac9-11eb-94f2-5520463116c1.png)  
+**[4]** 이후 Data rcv rate(mps) 항목을 통해 데이터가 수집되고있음을 확인하실 수 있습니다.  
+![image](https://user-images.githubusercontent.com/82207645/121640749-46ccdb80-cac9-11eb-8955-7a8db5a71a99.png)  
+**본 절차까지 정상적으로 진행되었으면 클라우드 2D 대시보드에서도 데이터가 수집됨을 확인하실 수 있습니다.  
 
 ## 솔루션 설치는 본 Repository의 다음 문서를 참고하여 진행합니다.  
 * [**에지게이트웨이 교육자료.pdf**](https://github.com/kosmo-nestfield/EdgwGW_Solution/blob/main/%EC%97%90%EC%A7%80%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4%20%EA%B5%90%EC%9C%A1%EC%9E%90%EB%A3%8C.pdf)  
