@@ -58,7 +58,7 @@
 ```  
 ![interfaces](https://user-images.githubusercontent.com/82207645/114326521-27204200-9b70-11eb-8221-1e599731e70b.png)  
   
-### 5. 네트워크 셋업 및 도커 설치  
+### 5. 네트워크 셋업  
 **[1]** 아래 명령어 중 하나를 입력하거나 시스템을 재시작합니다.  
 ```admin@gateway:\~$ sudo service network-manager restart```  
 ```admin@gateway:\~$ sudo service networking restart```  
@@ -73,12 +73,34 @@
 **[3]** 아래 명령어를 입력하여 시스템을 업데이트합니다.  
 ```admin@gateway:\~$ sudo apt-get update```  
 
-**[4]** 아래 명령어를 입력하여 도커를 설치합니다.  
-```admin@gateway:\~$ sudo curl -fsSL https://get.docker.com/ | sudo sh```  
-> Curl이 설치되어있지 않으면 아래 명령어로 설치합니다.  
-> ```admin@gateway:\~$ sudo apt-get install curl```  
-  
-## 이후 솔루션 설치는 본 Repository의 다음 문서를 참고하여 진행합니다.  
+### 6. 솔루션 설치 및 설정 작업  
+**[1]** 아래 명령어를 차례로 입력하여, 본 레포지토리의 패키지 파일 다운로드 작업을 진행합니다.  
+```cd  /home/admin```  
+```curl -LO https://github.com/kosmo-nestfield/EdgeGW_Solution/raw/main/edgeInstallPackage.tar```  
+
+**[2]** 아래 명령어를 입력하여 패키지 파일의 압축을 해제합니다.  
+```tar -xvf edgeInstallPackage.tar```  
+
+**[3]** 아래 명령어를 입력하여 설치 작업용 스크립트를 실행합니다.  
+``` ./install_Edge.sh ```  
+
+**[4]** 아래 명령어를 차례로 입력하여 시계열DB 기본 설정을 진행합니다.  
+```cd machDbSet/```  
+```./setTsDb.sh```  
+
+**[5]** 아래 명령어를 차례로 입력하여 gateway.config 파일을 편집합니다.  
+```cd ~/sharedFolder```  
+```vi gateway.config 또는 nano gateway.config```  
+![image](https://user-images.githubusercontent.com/82207645/121631019-43c9ef00-cab9-11eb-8026-6c1c7b063033.png)  
+
+**[6]** 이후 아래 명령어를 차례로 입력하여 암호 파일을 편집합니다.  
+```cd security```  
+```./dna_encrypt admin.secured```  
+```./dna_encrypt opcua.secured```  
+```./dna_encrypt amqp.secured```  
+```./dna_encrypt regiKey.secured```  
+
+## 솔루션 설치는 본 Repository의 다음 문서를 참고하여 진행합니다.  
 * [**에지게이트웨이 교육자료.pdf**](https://github.com/kosmo-nestfield/EdgwGW_Solution/blob/main/%EC%97%90%EC%A7%80%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4%20%EA%B5%90%EC%9C%A1%EC%9E%90%EB%A3%8C.pdf)  
 * [**에지게이트웨이 설치매뉴얼.txt**](https://github.com/kosmo-nestfield/EdgwGW_Solution/blob/main/%EC%97%90%EC%A7%80%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4%20%EC%84%A4%EC%B9%98%20%EB%A7%A4%EB%89%B4%EC%96%BC.txt)  
 * [**0527 엣지게이트웨이 실습 매뉴얼**](https://github.com/kosmo-nestfield/EdgeGW_Solution/blob/main/%EC%97%A3%EC%A7%80%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4%EC%8B%A4%EC%8A%B5_5%EC%9B%9427%EC%9D%BC.pdf)
@@ -87,8 +109,8 @@
 * [**gatewayHostPackage_0128.tar**](https://github.com/kosmo-nestfield/EdgwGW_Solution/blob/main/gatewayHostPackage_0128.tar) : 본 Repository에 업로드되어있습니다.
   
 **Docker pull용 appliation images 명**  
-* control    	:	nestfield/controlmodule:rel0126  
-* opcuamodule	:	nestfield/opcuamodule:210412  
+* control    	:	nestfield/controlmodule:latest  
+* opcuamodule	:	nestfield/opcuamodule:latest  
 * tsDB	    	:	machbase/machbase:6.1.15  
 * broker	  	:	eclipse-mosquitto:1.6.12  
 * monitor 		:	nicolargo/glances:3.1.6.1   
