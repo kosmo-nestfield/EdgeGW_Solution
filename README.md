@@ -107,8 +107,8 @@
 ```http://[IP주소]:5000```  
 **[2]** 좌측 하단의 '인증서' 버튼을 누른 후 X.509 Cert 항목의 값이 false에서 true로 바뀐것을 확인합니다.  
 ![image](https://user-images.githubusercontent.com/82207645/121639963-497b0100-cac8-11eb-9a25-8d14090378cf.png)  
-**[3]** 우측 상단의 '등록' 버튼을 누른 후 좌측 하단의 InfoModel, engineering, syscfg file값과 우측 상단 Cloud 등록 값이 true로 바뀐것을 확인합니다.  
-![image](https://user-images.githubusercontent.com/82207645/121640655-28ff7680-cac9-11eb-94f2-5520463116c1.png)  
+**[3]** 우측 상단의 '등록' 버튼을 누른 후 좌측 하단 InfoModel, engineering, syscfg file값과 우측 상단 Cloud 등록 값이 true로 바뀐것을 확인합니다.  
+![image](https://user-images.githubusercontent.com/82207645/121640995-9b705680-cac9-11eb-8b40-401254a82735.png)  
 **[4]** 이후 Data rcv rate(mps) 항목을 통해 데이터가 수집되고있음을 확인하실 수 있습니다.  
 ![image](https://user-images.githubusercontent.com/82207645/121640749-46ccdb80-cac9-11eb-8955-7a8db5a71a99.png)  
 **본 절차까지 정상적으로 진행되었으면 클라우드 2D 대시보드에서도 데이터가 수집됨을 확인하실 수 있습니다.  
