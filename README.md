@@ -111,11 +111,10 @@
 ![image](https://user-images.githubusercontent.com/82207645/121640995-9b705680-cac9-11eb-8b40-401254a82735.png)  
 **[4]** 이후 Data rcv rate(mps) 항목을 통해 데이터가 수집되고있음을 확인하실 수 있습니다.  
 ![image](https://user-images.githubusercontent.com/82207645/121640749-46ccdb80-cac9-11eb-8955-7a8db5a71a99.png)  
-**본 절차까지 정상적으로 진행되었으면 클라우드 2D 대시보드에서도 데이터가 수집됨을 확인하실 수 있습니다.  
+**본 절차까지 정상적으로 진행되었으면 클라우드 2D 대시보드에서도 데이터가 수집됨을 확인하실 수 있습니다.**  
 
 ## 솔루션 설치는 본 Repository의 다음 문서를 참고하여 진행합니다.  
 * [**에지게이트웨이 교육자료.pdf**](https://github.com/kosmo-nestfield/EdgwGW_Solution/blob/main/%EC%97%90%EC%A7%80%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4%20%EA%B5%90%EC%9C%A1%EC%9E%90%EB%A3%8C.pdf)  
-* [**에지게이트웨이 설치매뉴얼.txt**](https://github.com/kosmo-nestfield/EdgwGW_Solution/blob/main/%EC%97%90%EC%A7%80%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4%20%EC%84%A4%EC%B9%98%20%EB%A7%A4%EB%89%B4%EC%96%BC.txt)  
 * [**0527 엣지게이트웨이 실습 매뉴얼**](https://github.com/kosmo-nestfield/EdgeGW_Solution/blob/main/%EC%97%A3%EC%A7%80%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4%EC%8B%A4%EC%8A%B5_5%EC%9B%9427%EC%9D%BC.pdf)
 ## 설치 시 필요한 사전 정보는 아래와 같습니다.  
 **설치용 gatewayHostPackage 파일명**  
