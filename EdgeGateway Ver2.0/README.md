@@ -87,12 +87,7 @@
 **[3]** 아래 명령어를 입력하여 설치 작업용 스크립트를 실행합니다.  
 ``` ./install_Edge.sh ```  
 
-**[4]** 아래 명령어를 차례로 입력하여 gateway.config 파일을 편집합니다.  
-```cd ~/sharedFolder```  
-```vi gateway.config 또는 nano gateway.config```  
-![image](https://user-images.githubusercontent.com/82207645/121639562-ac1fcd00-cac7-11eb-86a1-3e00f7c0eab6.png)  
-
-**[5]** 이후 아래 명령어를 차례로 입력하여 암호 파일을 편집합니다.  
+**[4]** 이후 아래 명령어를 차례로 입력하여 암호 파일을 편집합니다.  
 ```cd security```  
 ```./dna_encrypt admin.secured```  
 ```./dna_encrypt opcua.secured```  
