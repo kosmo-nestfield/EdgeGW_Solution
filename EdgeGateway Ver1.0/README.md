@@ -76,7 +76,7 @@
 ### 6. 솔루션 설치 및 설정 작업  
 **[1]** 아래 명령어를 차례로 입력하여, 본 레포지토리의 패키지 파일 다운로드 작업을 진행합니다.  
 ```cd  /home/admin```  
-```curl -LO https://github.com/kosmo-nestfield/EdgeGW_Solution/raw/main/edgeInstallPackage.tar```  
+```curl -LO https://github.com/kosmo-nestfield/EdgeGW_Solution/raw/main/EdgeGateway%20Ver1.0/edgeInstallPackage.tar```  
 
 **[2]** 아래 명령어를 입력하여 패키지 파일의 압축을 해제합니다.  
 ```tar -xvf edgeInstallPackage.tar```  
