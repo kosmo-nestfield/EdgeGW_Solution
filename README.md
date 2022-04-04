@@ -1,8 +1,10 @@
 # 1. 개요  
 본 문서는 AAS기반 제조 데이터 수집 및 저장 솔루션 중 엣지게이트웨이 설치 방법에 대해 설명합니다.  
-  
+### ※ 2022년 04월 이후 본 문서는 엣지 게이트웨이 2.0버전 설치 방법에 대해 설명합니다.  
+
 # 2. 솔루션 설치 환경  
-엣지게이트웨이 솔루션은 Debian 9.4 (stretch) OS, intel CPU 환경에서 제작되었습니다.  
+엣지게이트웨이 솔루션은 *Debian 10.11.2 (buster) OS, intel CPU* 환경에서 제작되었습니다.  
+설치 및 실행 테스트는 *Debian 10.11.2 , Ubuntu 18.04.06 LTS* 버전에서 진행되었습니다.  
 권장 사양 및 기본 환경 구성은 다음과 같습니다.  
   
 ## PC 권장 사양  
@@ -10,7 +12,8 @@
 * Memory : 16GB DRAM  
 * Disk : 256GB 이상의 SSD 디스크  
 * Network : 2개 이상의 LAN 포트  
-* OS : Linux Debian 9 또는 리눅스 기반 OS (MS Windows 미지원)  
+* OS : *Linux Debian 10*, *Ubuntu 18.04 LTS* 또는 기타 리눅스 기반 OS (MS Windows 미지원)  
+* Python 3.6 또는 3.7 버전 설치된 환경에서 정상적으로 동작합니다.  
   
 ## 네트워크 정책  
 본 솔루션은 별도의 네트워크 방화벽 정책 추가를 필요로 합니다. 그 정보는 다음과 같습니다.  
@@ -76,24 +79,20 @@
 ### 6. 솔루션 설치 및 설정 작업  
 **[1]** 아래 명령어를 차례로 입력하여, 본 레포지토리의 패키지 파일 다운로드 작업을 진행합니다.  
 ```cd  /home/admin```  
-```curl -LO https://github.com/kosmo-nestfield/EdgeGW_Solution/raw/main/edgeInstallPackage.tar```  
+```curl -LO https://github.com/kosmo-nestfield/EdgeGW_Solution/raw/main/edgeInstallPackage_v2.tar```  
 
 **[2]** 아래 명령어를 입력하여 패키지 파일의 압축을 해제합니다.  
-```tar -xvf edgeInstallPackage.tar```  
+```tar -xvf edgeInstallPackage_v2.tar```  
 
 **[3]** 아래 명령어를 입력하여 설치 작업용 스크립트를 실행합니다.  
 ``` ./install_Edge.sh ```  
 
-**[4]** 아래 명령어를 차례로 입력하여 시계열DB 기본 설정을 진행합니다.  
-```cd machDbSet/```  
-```./setTsDb.sh```  
-
-**[5]** 아래 명령어를 차례로 입력하여 gateway.config 파일을 편집합니다.  
+**[4]** 아래 명령어를 차례로 입력하여 gateway.config 파일을 편집합니다.  
 ```cd ~/sharedFolder```  
 ```vi gateway.config 또는 nano gateway.config```  
 ![image](https://user-images.githubusercontent.com/82207645/121639562-ac1fcd00-cac7-11eb-86a1-3e00f7c0eab6.png)  
 
-**[6]** 이후 아래 명령어를 차례로 입력하여 암호 파일을 편집합니다.  
+**[5]** 이후 아래 명령어를 차례로 입력하여 암호 파일을 편집합니다.  
 ```cd security```  
 ```./dna_encrypt admin.secured```  
 ```./dna_encrypt opcua.secured```  
@@ -105,24 +104,38 @@
 **클라우드의 설치가 완료되었다면 아래 절차를 수행하여 등록절차를 진행하시면 됩니다.**  
 **[1]** 웹 브라우저를 이용하여 게이트웨이 웹 대시보드로 이동합니다.  
 ```http://[IP주소]:5000```  
-**[2]** 좌측 하단의 '인증서' 버튼을 누른 후 X.509 Cert 항목의 값이 false에서 true로 바뀐것을 확인합니다.  
-![image](https://user-images.githubusercontent.com/82207645/121639963-497b0100-cac8-11eb-9a25-8d14090378cf.png)  
-**[3]** 우측 상단의 '등록' 버튼을 누른 후 좌측 하단 InfoModel, engineering, syscfg file값과 우측 상단 Cloud 등록 값이 true로 바뀐것을 확인합니다.  
-![image](https://user-images.githubusercontent.com/82207645/121640995-9b705680-cac9-11eb-8b40-401254a82735.png)  
+**[2]** 우측 상단 Control 메뉴의 '등록' 버튼을 클릭합니다.  
+![image](https://user-images.githubusercontent.com/82207645/161478661-582eecb4-172d-410e-9e75-a4374b73ffac.png)  
+**[3]** 클라우드 서버 IP, 엣지게이트웨이 ID, 클라우드 등록 키, DB 사용 여부를 입력한 후 'Register' 버튼을 클릭합니다.  
+__※ 클라우드에서 엣지게이트웨이 접속을 위한 RabbitMQ 계정 생성 시, ID와 PW를 각각 엣지게이트웨이 ID와 클라우드 등록 키로 설정해주세요.__  
+![image](https://user-images.githubusercontent.com/82207645/161464501-c5ca8b7e-af73-4079-b426-dedfd9ce7e7e.png)  
+- 정상 등록 시 아래와 같은 메시지가 출력됩니다.  
+![image](https://user-images.githubusercontent.com/82207645/161473940-6c72ccd8-8a88-4223-9038-552e03054de9.png)  
 **[4]** 이후 Data rcv rate(mps) 항목을 통해 데이터가 수집되고있음을 확인하실 수 있습니다.  
-![image](https://user-images.githubusercontent.com/82207645/121640749-46ccdb80-cac9-11eb-8955-7a8db5a71a99.png)  
+![image](https://user-images.githubusercontent.com/82207645/161475597-5a4a63f9-2c4d-43f2-937a-738ce6fbac3c.png)  
 **본 절차까지 정상적으로 진행되었으면 클라우드 2D 대시보드에서도 데이터가 수집됨을 확인하실 수 있습니다.**  
+
+### 8. 추가된 기능  
+- 웹 대시보드 로그인 패스워드 변경 기능이 추가되었습니다.  
+![image](https://user-images.githubusercontent.com/82207645/161477117-364cfe60-76ab-4cb2-ac12-ea92e9a371c5.png)  
+- 엣지 게이트웨이 설정 및 동작 초기화 기능이 추가되었습니다.  
+![image](https://user-images.githubusercontent.com/82207645/161477288-10a0761b-a565-417f-87f7-0119d40c17db.png)  
+- 전체적인 데이터 카운트 숫자 초기화 기능이 추가되었습니다.(Aggregation Server의 Data Sending, Queue Full 등)  
+![image](https://user-images.githubusercontent.com/82207645/161477420-f45a7d49-0313-4606-8e67-3f14eb3d496d.png)  
+
+
+
 
 ## 솔루션 설치는 본 Repository의 다음 문서를 참고하여 진행합니다.  
 * [**에지게이트웨이 교육자료.pdf**](https://github.com/kosmo-nestfield/EdgwGW_Solution/blob/main/%EC%97%90%EC%A7%80%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4%20%EA%B5%90%EC%9C%A1%EC%9E%90%EB%A3%8C.pdf)  
-* [**0527 엣지게이트웨이 실습 매뉴얼**](https://github.com/kosmo-nestfield/EdgeGW_Solution/blob/main/%EC%97%A3%EC%A7%80%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4%EC%8B%A4%EC%8A%B5_5%EC%9B%9427%EC%9D%BC.pdf)
+* [**0527 엣지게이트웨이 실습 매뉴얼**](https://github.com/kosmo-nestfield/EdgeGW_Solution/blob/main/%EC%97%A3%EC%A7%80%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4%EC%8B%A4%EC%8A%B5_5%EC%9B%9427%EC%9D%BC.pdf)  
 ## 설치 시 필요한 사전 정보는 아래와 같습니다.  
 **설치용 gatewayHostPackage 파일명**  
-* [**gatewayHostPackage_0128.tar**](https://github.com/kosmo-nestfield/EdgwGW_Solution/blob/main/gatewayHostPackage_0128.tar) : 본 Repository에 업로드되어있습니다.
+* [**gatewayHostPackage_202201.tar**](https://github.com/kosmo-nestfield/EdgwGW_Solution/blob/main/gatewayHostPackage_202201.tar) : 본 Repository에 업로드되어있습니다.
   
 **Docker pull용 appliation images 명**  
-* control    	:	nestfield/controlmodule:latest  
-* opcuamodule	:	nestfield/opcuamodule:latest  
+* control    	:	nestfield/controlmodule:220101  
+* opcuamodule	:	nestfield/opcuamodule:220101  
 * tsDB	    	:	machbase/machbase:6.1.15  
 * broker	  	:	eclipse-mosquitto:1.6.12  
 * monitor 		:	nicolargo/glances:3.1.6.1   
@@ -130,6 +143,7 @@
 **설치 시 사용되는 최소한의 Linux 명령어**  
 * ls, cd , pwd, cp, cat, nano, vi, ifconfig, tar  
 * sudo apt-get update  
+* sudo apt-get upgrade  
   
 **원격으로 SSH를 이용하여 엣지게이트웨이에 접속하는 방법은 ["SSH 사용법"](https://github.com/kosmo-nestfield/EdgwGW_Solution/tree/main/SSH%20%EC%82%AC%EC%9A%A9%EB%B2%95) 폴더를 참고해주시기 바랍니다.**  
   
