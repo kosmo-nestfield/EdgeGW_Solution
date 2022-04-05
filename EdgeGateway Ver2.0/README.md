@@ -126,7 +126,7 @@ __※ 클라우드에서 엣지게이트웨이 접속을 위한 RabbitMQ 계정 
 * [**0527 엣지게이트웨이 실습 매뉴얼**](https://github.com/kosmo-nestfield/EdgeGW_Solution/blob/main/%EC%97%A3%EC%A7%80%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4%EC%8B%A4%EC%8A%B5_5%EC%9B%9427%EC%9D%BC.pdf)  
 ## 설치 시 필요한 사전 정보는 아래와 같습니다.  
 **설치용 gatewayHostPackage 파일명**  
-* [**gatewayHostPackage_202201.tar**](https://github.com/kosmo-nestfield/EdgwGW_Solution/blob/main/gatewayHostPackage_202201.tar) : 본 Repository에 업로드되어있습니다.
+* [**gatewayHostPackage_v2.tar**](https://github.com/kosmo-nestfield/EdgwGW_Solution/blob/main/EdgeGateway%20Ver2.0/gatewayHostPackage_v2.tar) : 본 Repository에 업로드되어있습니다.
   
 **Docker pull용 appliation images 명**  
 * control    	:	nestfield/controlmodule:220101  
