@@ -88,7 +88,7 @@
 ``` ./edgeInstallPackage_v2/install_Edge.sh ```  
 
 **[4]** 이후 아래 명령어를 차례로 입력하여 암호 파일을 편집합니다.  
-```cd security```  
+```cd sharedFolder/security```  
 ```./dna_encrypt admin.secured```  
 ```./dna_encrypt opcua.secured```  
 ```./dna_encrypt amqp.secured```  
