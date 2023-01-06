@@ -117,6 +117,14 @@ __※ 클라우드에서 엣지게이트웨이 접속을 위한 RabbitMQ 계정 
 ![image](https://user-images.githubusercontent.com/82207645/161477288-10a0761b-a565-417f-87f7-0119d40c17db.png)  
 - 전체적인 데이터 카운트 숫자 초기화 기능이 추가되었습니다.(Aggregation Server의 Data Sending, Queue Full 등)  
 ![image](https://user-images.githubusercontent.com/82207645/161477420-f45a7d49-0313-4606-8e67-3f14eb3d496d.png)  
+- copyFromOPC.sh 파일을 이용해 opcuaModule 내 syscfg.json, nodeset.xml, engineering.csv 파일을 홈 디렉토리에 복사할 수 있습니다.  
+![image](https://user-images.githubusercontent.com/82207645/210957031-69780b10-76b0-4998-9773-e1345560a0bd.png)  
+- copyToOPC.sh 파일을 이용해 설정 파일을 opcuaModule내 설정 파일 위치로 복사할 수 있습니다.  
+![image](https://user-images.githubusercontent.com/82207645/210957272-8cd152da-5000-45bd-bfe9-1a4e6fb30ad0.png)  
+- 설치 후 게이트웨이 웹 대시보드가 정상적으로 실행되지 않는다면 auxiliaryInstall.sh 실행 후 게이트웨이 웹 서비스를 재실행해주세요.  
+![image](https://user-images.githubusercontent.com/82207645/210957839-91f731f9-ff0a-470e-a8e7-5fb6c7bf92a3.png)  
+``` sudo systemctl restart gatewayWeb.service```  
+
 
 
 
