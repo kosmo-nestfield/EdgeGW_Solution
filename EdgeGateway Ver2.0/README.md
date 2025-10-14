@@ -120,12 +120,7 @@
 **설치용 gatewayHostPackage 파일명**  
 * [**gatewayHostPackage_v2.tar**](https://github.com/kosmo-nestfield/EdgwGW_Solution/blob/main/EdgeGateway%20Ver2.0/gatewayHostPackage_v2.tar) : 본 Repository에 업로드되어있습니다.
   
-**Docker pull용 appliation images 명**  
-* control    	:	nestfield/controlmodule:220101  
-* opcuamodule	:	nestfield/opcuamodule:220101  
-* tsDB	    	:	machbase/machbase:6.1.15  
-* broker	  	:	eclipse-mosquitto:1.6.12  
-* monitor 		:	nicolargo/glances:3.1.6.1   
+
   
 **설치 시 사용되는 최소한의 Linux 명령어**  
 * ls, cd , pwd, cp, cat, nano, vi, ifconfig, tar  
@@ -137,4 +132,5 @@
 ## 도커 OPCUA Module과 Control Module 이미지는 Docker Hub에 업로드되어있습니다.   
 * [OPCUA Module](https://hub.docker.com/repository/docker/nestfield/opcuamodule)  
 * [Control Module](https://hub.docker.com/repository/docker/nestfield/controlmodule)  
+
 
