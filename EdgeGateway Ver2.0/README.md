@@ -94,23 +94,7 @@
 ```./dna_encrypt amqp.secured```  
 ```./dna_encrypt regiKey.secured```  
 
-### 7. 엣지 게이트웨이 클라우드 등록  
-**\[6. 솔루션 설치 및 설정 작업\] 까지 진행하셨으면 엣지게이트웨이 설치는 완료된 것입니다.**  
-**클라우드의 설치가 완료되었다면 아래 절차를 수행하여 등록절차를 진행하시면 됩니다.**  
-**[1]** 웹 브라우저를 이용하여 게이트웨이 웹 대시보드로 이동합니다.  
-```http://[IP주소]:5000```  
-**[2]** 우측 상단 Control 메뉴의 '등록' 버튼을 클릭합니다.  
-![image](https://user-images.githubusercontent.com/82207645/161478661-582eecb4-172d-410e-9e75-a4374b73ffac.png)  
-**[3]** 클라우드 서버 IP, 엣지게이트웨이 ID, 클라우드 등록 키, DB 사용 여부를 입력한 후 'Register' 버튼을 클릭합니다.  
-__※ 클라우드에서 엣지게이트웨이 접속을 위한 RabbitMQ 계정 생성 시, ID와 PW를 각각 엣지게이트웨이 ID와 클라우드 등록 키로 설정해주세요.__  
-![image](https://user-images.githubusercontent.com/82207645/161464501-c5ca8b7e-af73-4079-b426-dedfd9ce7e7e.png)  
-- 정상 등록 시 아래와 같은 메시지가 출력됩니다.  
-![image](https://user-images.githubusercontent.com/82207645/161473940-6c72ccd8-8a88-4223-9038-552e03054de9.png)  
-**[4]** 이후 Data rcv rate(mps) 항목을 통해 데이터가 수집되고있음을 확인하실 수 있습니다.  
-![image](https://user-images.githubusercontent.com/82207645/161475597-5a4a63f9-2c4d-43f2-937a-738ce6fbac3c.png)  
-**본 절차까지 정상적으로 진행되었으면 클라우드 2D 대시보드에서도 데이터가 수집됨을 확인하실 수 있습니다.**  
-
-### 8. 추가된 기능  
+### 7. 추가된 기능  
 - 웹 대시보드 로그인 패스워드 변경 기능이 추가되었습니다.  
 ![image](https://user-images.githubusercontent.com/82207645/161477117-364cfe60-76ab-4cb2-ac12-ea92e9a371c5.png)  
 - 엣지 게이트웨이 설정 및 동작 초기화 기능이 추가되었습니다.  
@@ -153,3 +137,4 @@ __※ 클라우드에서 엣지게이트웨이 접속을 위한 RabbitMQ 계정 
 ## 도커 OPCUA Module과 Control Module 이미지는 Docker Hub에 업로드되어있습니다.   
 * [OPCUA Module](https://hub.docker.com/repository/docker/nestfield/opcuamodule)  
 * [Control Module](https://hub.docker.com/repository/docker/nestfield/controlmodule)  
+
