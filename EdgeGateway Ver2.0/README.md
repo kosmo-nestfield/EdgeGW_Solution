@@ -109,8 +109,17 @@
 ![image](https://user-images.githubusercontent.com/82207645/210957839-91f731f9-ff0a-470e-a8e7-5fb6c7bf92a3.png)  
 ``` sudo systemctl restart gatewayWeb.service```  
 
-
-
+### 8. 기타 오류 수정  
+- 설치 중 아래 그림과 같은 메시지가 출력되며 Docker 설치가 제대로 진행되지 않는 경우가 간혹 있습니다.  
+- <img width="1571" height="577" alt="image" src="https://github.com/user-attachments/assets/4d613426-8408-4a4f-9161-1166abe6f6a8" />  
+- 이 경우 아래 명령어를 순서대로 입력하신 후 install_Edge.sh 스크립트를 다시 실행해주시기 바랍니다.  
+``` sudo apt-get update ```  
+``` sudo apt-get install -y ca-certificates curl gnupg lsb-release ```  
+``` sudo mkdir -p /etc/apt/keyrings ```  
+``` curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg ```  
+``` echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu focal stable" sudo tee /etc/apt/sources.list.d/docker.list > /dev/null ```    
+``` sudo apt-get update ```  
+``` sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin ```  
 
 
 ## 솔루션 설치는 본 Repository의 다음 문서를 참고하여 진행합니다.  
@@ -132,5 +141,6 @@
 ## 도커 OPCUA Module과 Control Module 이미지는 Docker Hub에 업로드되어있습니다.   
 * [OPCUA Module](https://hub.docker.com/repository/docker/nestfield/opcuamodule)  
 * [Control Module](https://hub.docker.com/repository/docker/nestfield/controlmodule)  
+
 
 
